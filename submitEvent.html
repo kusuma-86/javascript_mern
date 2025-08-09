@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Submit</h2>
+    <form id="myform">
+        <Label id="username">Enter your username</Label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <script>
+        const form=document.getElementById("myform");
+        form.addEventListener("submit",(event)=>{
+            event.preventdefault();//prevent from reloading page
+            alert(`form submit with details like:${form.username.value}`)
+        });
+    </script>
+</body>
+</html>

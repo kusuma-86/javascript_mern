@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="fobo">
+        <label>
+            Number: <input type="number" id="name" placeholder="Enter a number" />
+        </label>
+        <br />
+        <label>
+            Color: <input type="color" id="col" />
+        </label>
+        <br />
+        <label>
+            Select the shape:
+            <select id="shape" name="drp">
+                <option value="circle" id="op1">Circle</option>
+                <option value="rectangle" id="op2">Rectangle</option>
+            </select>
+        </label>
+        <br />
+        <button id="idd" type="submit">Click</button>
+    </form>
+
+    <div id="o"></div>
+
+    <script>
+        document.getElementById("fobo").addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent form submission
+            const num = document.getElementById("name").value;
+            const col = document.getElementById("col").value;
+            const sha = document.getElementById("shape").value;
+            let out = document.getElementById("o");
+            out.innerHTML = "";
+
+            for (let i = 1; i <= num; i++) {
+                let shape = document.createElement("div");
+                if (sha === "circle") {
+                    shape.setAttribute(
+                        "style"
+                        width=100px; height:100px;border-radius:50%;background:${col};margin:10px;
+                    );
+                } else if (sha === "rectangle") {
+                    shape.setAttribute(
+                        "style",
+                        width:150px; height:100px;background:${col};margin:10px;
+                    );
+                }
+                out.appendChild(shape);
+            }
+        });
+    </script>
+</body>
+</html>

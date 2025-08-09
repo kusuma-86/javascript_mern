@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Jimine!!!</h1>
+    <button id="clickBtn">Click Me!!!</button>
+    <h2>MouseOver Event</h2>
+    <div id="hoverBox">hover over me</div>
+    <p id="keyChange">Change Key</p>
+    <script>
+        // Element.addEventListener(event,callbackFuction);
+        //common events
+        //click
+        // mouseover
+        // mousemove
+        // Keyup 
+        //keydown /
+        //mousenter
+        //error
+        //load
+        //resize
+        //submit
+        //input
+        //change
+        // const clickBtn=document.getElementById("clickBtn");
+        // clickBtn.addEventListener("click",()=>{
+        //     clickBtn.style.backgroundColor="pink";
+        // })
+        // const hoverBox=document.getElementById("hoverBox");
+        // hoverBox.addEventListener("mouseover",()=>{
+        //     hoverBox.style.backgroundColor="green";
+        // })
+        keychange.addEventListener("keydown",(event)=>{
+            keychange.innerHTML="event.keyChange";
+            console.log(event);
+
+        })
+    </script>
+</body>
+</html>

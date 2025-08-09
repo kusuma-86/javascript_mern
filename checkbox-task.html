@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="basic-form">
+    <input type="checkbox" id="check">agree<br><br>
+    <button type="submit" id="btn">Submit</button>
+   </form>
+    <script>
+        const form=document.getElementById("basic-form");
+        form.addEventListener("submit",(event)=>{
+            event.preventDefault();
+            const check=document.getElementById("check").checked;
+           if(!check){
+            alert("click the checkbox");
+            return;
+           }
+           else{
+            alert("submitted");
+           return;
+           }
+        });
+    </script>
+</body>
+</html>

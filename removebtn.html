@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Button</title>
+</head>
+<body>
+    <h1>Remove</h1>
+    <button id="removeBtn">Click Me!!!</button>
+    <button id="stopBtn">Stop me!!!</button>
+    <script>
+        const removeBtn=document.getElementById("removeBtn");
+        const stopBtn=document.getElementById("stopBtn");
+        removeBtn.addEventListener("click",handleClick());
+        stopBtn.addEventListener("click",()=>{
+            removeBtn.removeEventListener("click",handleClick);
+            alert("event has been removed");
+        });
+        function handleClick(){
+            alert("button has been clicked");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="colorBtn" onclick="generator()">Color Generator</button>
+  <script>
+    function generator(){
+        document.style.backgroundColor="black";
+        return whitegen();
+
+    }
+    function whitegen(){
+        document.style.backgroundColor="white";
+        return purplegen();
+    }
+    function greengen(){
+        document.style.backgroundColor="yellow";
+        return whitegen();
+    }
+
+  </script>
+</body>
+</html>

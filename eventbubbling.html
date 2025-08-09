@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubbling</title>
+    <style>
+     #grandparent,
+     #parent,
+     #child{
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        border: 1px solid black;
+     }
+     #grandparent{
+        background-color: red;
+     }
+     #parent{
+        background-color: blue;
+     }
+     #child{
+
+        background-color: yellow;
+     }
+    </style>
+</head>
+<body>
+    <div id="grandparent">grandparent
+        <div id="parent">
+         parent
+         <div id="child">child
+
+         </div>
+        </div>
+    </div>
+    <script>
+        // <!--Event capturing-->event will capture there only event will start from bottom to top
+        // const grandparent=document.getElementById("grandparent");
+        // grandparent.addEventListener("click",()=>{
+        //     console.log("grandparent is clicked");
+        // },true);
+        // const parent=document.getElementById("parent");
+        // grandparent.addEventListener("click",()=>{
+        //     console.log("parent is clicked");
+        // },true);
+        // const child=document.getElementById("child");
+        // grandparent.addEventListener("click",()=>{
+        //     console.log("child is clicked");
+        // },true);
+        // <!--Event bubbling and its prevention-->
+        //reverse of event capturing phase where event bubble p from parent to child
+        const grandparent=document.getElementById("grandparent");
+        grandparent.addEventListener("click",(event)=>{
+            console.log("grandparent is clicked");
+            event.stopPropagation();
+        });
+        const parent=document.getElementById("parent");
+        parent.addEventListener("click",(event)=>{
+            console.log("parent is clicked");
+            event.stopPropagation();
+        });
+        const child=document.getElementById("child");
+        child.addEventListener("click",(event)=>{
+            console.log("child is clicked");
+            event.stopPropagation();
+        });
+
+
+    </script>
+</body>
+</html>

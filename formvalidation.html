@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form  id="backForm " action="">
+        <label for="">
+            Name: <input type="text" id="name" placeholder="enter your name">
+        </label>
+        <br><br>
+        <label for="">
+            Email: <input tyoe="email" id="email" placeholder="name@gmail.com">
+        </label>
+        <br><br>
+        <label>
+            Password: <input type="password" id="password" placeholder="enter your password">
+        </label>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const form=document.getElementById("backForm");
+        form.addEventListener("submit",(event)=>{
+            event.preventDefault();
+            const name=document.getElementById("name").value;
+            const email=document.getElementById("email").value;
+            const password=document.getElementById("password").value;
+            if(name===" "){
+                alert("please enter your name");
+                return;
+            };
+            if(email.match(/^\S+@\S+\.\S+$/)){
+                alert("please enter your email");
+                return;
+            }
+            if(password.length<8){
+                alert("please enter your password of length greater than 8");
+                return;
+            }
+
+           alert(`Form has been submitted username is ${name} ,email is ${email} and password is ${password} `);
+        });
+    </script>
+</body>
+</html>

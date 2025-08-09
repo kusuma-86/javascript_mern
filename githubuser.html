@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Username Finder using the GitHub API</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: white;
+    padding: 20px;
+}
+.container {
+    max-width: 450px;
+    width: 100%;
+    height: 455px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.container:hover {
+    transform: scale(1.02);
+}
+h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.search-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+button {
+    padding: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+.user-card {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s, transform 0.3s;
+}
+.user-card.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.user-card img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+.user-card h2 {
+    font-size: 20px;
+    color: #fff;
+}
+.user-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #eee;
+}
+.user-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.user-stats div {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    width: 100px;
+    font-weight: bold;
+    text-align: center;
+}
+.error-message {
+    color: red;
+    margin-top: 15px;
+}
+
+#profile-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid;
+    border-radius: 10px;
+    position: absolute;
+    top: 100%;
+    left: 34%;
+}
+    </style>
+
+  </head>
+  <body>
+    <!-- search the user components -->
+    <div class="container">
+        <h1>GitHub User Finder</h1>
+        <div class="search-box">
+            <input type="text" id="username" placeholder="Enter GitHub Username">
+            <button onclick="getUser()">Search</button>
+        </div>
+        <p id="error-message" class="error-message"></p>
+        <div class="user-card" id="user-card">
+            <img id="avatar" src="" alt="Profile Picture">
+            <h2 id="name"></h2>
+            <p id="bio"></p>
+            <div class="user-stats">
+                <div><strong id="followers">0</strong> Followers</div>
+                <div><strong id="repos">0</strong> Repos</div>
+                <div><strong id="following">0</strong> Following</div>
+            </div>
+            <p><a id="profile-link" href="#" target="_blank" >View Profile</a></p>
+        </div>
+    </div>
+    <script>
+       async function getUser(){
+        const userName=document.getElementById('username').value;
+        const userCard=document.getElementById('user-card');
+        const errorMessage=document.getElementById('error-message');
+        if(userName===""){
+            errorMessage.textContent="please enter the github username";
+            userCard.classList.remove("show");
+            return;
+        }
+        try{
+            errorMessage.textContent="";
+            let response= await fetch(`https://api.github.com/users/${userName}`);
+            if(!response.ok){
+                throw new Error("not a valid username");
+            }
+            const data= await response.json();
+            document.getElementById("avatar").src=data.avatar_url;
+            document.getElementById('name').textContent=data.name||"NO name";
+            document.getElementById("bio").textContent=data.bio||"no-bio";
+            document.getElementById("followers").textContent=data.followers;
+            document.getElementById("repos").textContent=data.public_repos;
+            document.getElementById("following").textContent=data.following;
+            document.getElementById("profile-link").href=data.html_url;
+            userCard.classList.add("show");
+
+        }
+        catch(error){
+          errorMessage.textContent="user not found please try another one";
+          userCard.classList.remove("show");
+        }
+    }
+       
+    </script>
+  </body>
+</html>

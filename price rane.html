@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Price Rannge</div>
+        <div class="inputRange">
+           Minimum Price <input type="number" min="0" max="1000" id="mininput">
+            <br><br>
+           Maximum Price <input type="number" min="0" max="1000" id="maxinput">
+        </div>
+        <div class="slider">
+            <input type="range" id="range">
+        </div>
+    </div>
+    <script>
+        const mininput=document.getElementById("mininput").value;
+        const maxinput=document.getElementById("maxinput").value;
+        const priceslider=document.getElementById("range");
+        priceslider.addEventListener("input",range);
+        function range(){
+            
+        }
+
+    </script>
+</body>
+</html>

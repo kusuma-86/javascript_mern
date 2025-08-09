@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Api</title>
+</head>
+<body>
+    <h3>Fetch Api:An example of web Api</h3>
+    <div id="output"></div>
+    <script>
+        const URL='https://jsonplaceholder.typicode.com/today/5';
+        fetch(URL)
+         .then(res=>res.json())
+         .then(data=>{
+            document.getElementById('output').innerHTML+="The data Accessed from the web APi"+<"<br>"+
+            JSON.stringify(data);
+         });
+    </script>
+</body>
+</html>

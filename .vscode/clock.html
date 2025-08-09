@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+            box-shadow: 0 2px 3px ;
+            padding: 100px;
+        }
+        h1{
+            text-align: center;
+            align-content: center;
+            height: 300px;
+            width: 300px;
+            font-family: Arial, sans-serif;
+            font-size: 50px;
+            background-color: black;
+            color: aliceblue;
+            border-radius: 50%;
+            max-width: 400px;
+        }
+        #time{
+            font-size: 30px;
+            color:white;
+        }
+
+        /* Animation */
+        /* @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        } */
+    </style>
+</head>
+<body>
+    <h1 id="time"></h1>
+    <script>
+       setInterval(()=>{
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        document.getElementById('time').innerHTML = `${hours}:${minutes}:${seconds} hrs`;
+
+       },1000)
+    </script>
+</body>
+</html>

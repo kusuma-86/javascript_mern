@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        body{
+            margin: 20px;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 3px black;
+        }
+       #container{
+        background-color: black;
+        padding: 70px;
+        color: white;
+        max-width: 400px;
+        box-shadow: 0 2px 3px 2px cyan;
+       }
+        #increasebtn,#decreasebtn{
+        color: black;
+        font-weight: bolder;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color:rgb(45, 241, 241);
+        text-align:center;
+        margin-bottom: 30px;
+        width: 50px;
+       }
+       #increasebtn:hover,#decreasebtn:hover{
+        box-shadow: 0 2px 3px 1px white;
+       }                                                                                                                                                                                                                                 
+       #display{
+         padding: 10px;
+         border-radius: 10px;
+         border: none;
+       }
+       #resetbtn{
+        display: block;
+        padding: 10px 28px;
+        border-radius: 10px;
+        margin-left: 34%;
+        background-color: cyan;
+        font-weight: bolder;
+       }
+       h1{
+        text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h1>Counter App</h1>
+    <button id="increasebtn" onclick="Increase()">+</button>
+    <input type="number"  id="display" value="0" readonly>
+    <button id="decreasebtn" onclick="Decrease()">-</button>
+    <button id="resetbtn" onclick="Reset()">Reset</button>
+    </div>
+    <script>
+        let count=0;
+        function Increase(){
+           count++;
+          document.getElementById("display").value=count;
+        }
+        function Decrease(){
+            count--;
+            document.getElementById("display").value=count;
+        }
+        function Reset(){
+            count=0;
+            document.getElementById("display").value=count;
+        }
+    </script>
+</body>
+</html>

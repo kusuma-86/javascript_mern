@@ -1,0 +1,186 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="text">Hello</h1>
+    <button onclick="changeText()">Submit</button>
+    <script>
+        function changeText()
+        {
+            document.getElementById('text').innerHTML="Hi";
+        }
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="Hello">Kimtaehyung</h1>
+    <p class="hi">This is Kimtaehyung of BTS ,stage name "V</p>
+    <p class="hi">This is jeonjungkook of BTS ,stage name "JK</p>
+    <button onclick="parachange()">Submit</button>
+</body>
+<script>
+   function  parachange(){
+    let result=document.querySelectorAll(p);
+    result.innerText="hi jimin";
+    console.log(result);
+   }
+</script>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="catch">This is Jimin</p>
+</body>
+<script>
+    let para=document.getElementById('catch');
+    para.innerText="hi jimine";
+    para.style.color="purple"
+    para.style.fontSize="30px"
+</script>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>fruits</h1>
+    <ul>
+        <li>Mango</li>
+        <li>Grapes</li>
+        <li>Orange</li>
+        <li>Banana</li>
+    </ul>
+</body>
+<script>
+    let list=document.getElementsByTagName("li");
+    list.array.forEach(element => {
+        element.style.color="red";
+        element.style.fontSize="50px"
+    });
+</script> -->
+<!-- </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    append list-->
+    <!-- <h1>fruits</h1>
+    <ul id="list">
+        <li>Mango</li>
+        <li>Grapes</li>
+        <li>Orange</li>
+        <li>Banana</li>
+    </ul>
+</body>
+<script>
+    let list=document.getElementById("list");
+    let newlist=document.createElement("li");
+    newlist.innerHTML="hi jimin";
+    list.appendChild(newlist);
+    list.removeChild(newlist);
+</script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: cursive;
+            text-align: center;
+            background-color:rgb(236, 199, 106);
+            margin: 0;
+            padding: 0;
+
+        }
+        #todo-container{
+            max-width: 400px;
+            margin: 70px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 8px gray;
+        }
+        h2{
+            color: black;
+
+        }
+        input{
+            width: 50%;
+            padding: 10px;
+            color: black;
+            border: 1px #ddd;
+            border-radius: 10px;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="container" id="todo-container">
+        <h1>TODO list</h1>
+        <input type="text" id="my-input" placeholder="enter your task">
+        <button id="add-btn" onclick="addtask()">Add Task</button>
+        <ul id="tasklist"></ul>
+        <button id="deleteall" onclick="detletealltask()">Delete all</button>
+    </div>
+</body>
+<script>
+    function addtask(){
+        let myinput=document.getElementById("my-input");
+        let tasktext=myinput.value.trim();
+        if(tasktext ===" "){
+
+            alert("please enter the task")
+            return;
+        }
+        let li=document.createElement("li");
+        li.textContent=tasktext;
+        let deletebutton=document.createElement("button");
+        deletebutton.textContent="delete";
+        deletebutton.className="delete-btn";
+        deletebutton.addEventListener("click",function(){
+            li.remove();
+            checkTasklist();
+        });
+        li.appendChild(deletebutton);
+        document.getElementById("tasklist").appendChild(li);
+        myinput.value=" ";
+        document.getElementById("deleteall").style.display="block";
+
+    }
+    function deletealltask(){
+        document.getElementById("tasklist").innerHTML=" ";
+        document.getElementById("deleteall").style.display="none";
+    }
+    function checkTasklist(){
+        let tasklist=document.getElementById("tasklist");
+        if(tasklist.chlldElementCount==0){
+            document.getElementById("deleteall").style.display="none";
+        }
+    }
+</script>
+</html>
